@@ -1,3 +1,4 @@
+import 'package:ahwa_app_new/screens/order_screen.dart';
 import 'package:ahwa_app_new/widgets/custom_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class PendingScreen extends StatefulWidget {
 class _PendingScreenState extends State<PendingScreen> {
   @override
   Widget build(BuildContext context) {
+    final pending = drinks.where((order) => !order.isCompleted).toList();
     return Scaffold(
       appBar: AppBar(title: const Text('Pending Orders')),
       floatingActionButton: FloatingActionButton(
@@ -18,7 +20,7 @@ class _PendingScreenState extends State<PendingScreen> {
         },
         child: Icon(Icons.add),
       ),
-      body: drinks.isEmpty
+      body: pending.isEmpty
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -29,6 +31,11 @@ class _PendingScreenState extends State<PendingScreen> {
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (_) => const OrderScreen()),
+                      );
+                      setState(() {});
                       Navigator.pop(context);
                     },
                     child: Text('Add Order'),
@@ -45,7 +52,7 @@ class _PendingScreenState extends State<PendingScreen> {
                     children: [
                       Text(drinks[index].name),
                       Text(drinks[index].drink),
-                      drinks[index].notes.isNotEmpty
+                      drinks[index].notes!.isNotEmpty
                           ? Text("(${drinks[index].notes})")
                           : SizedBox.shrink(),
                     ],
@@ -61,10 +68,15 @@ class _PendingScreenState extends State<PendingScreen> {
                   trailing: IconButton(
                     onPressed: () {
                       setState(() {
-                        drinks.removeAt(index);
+                        drinks[index].isCompleted = true;
+                        Navigator.pop(context);
+                        drinks.removeWhere((order) => order.isCompleted);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Drink marked as completed!')),
+                        );
                       });
                     },
-                    icon: Icon(Icons.done),
+                    icon: Icon(Icons.check_box, color: Colors.green),
                   ),
                 );
               },

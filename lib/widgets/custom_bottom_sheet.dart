@@ -45,10 +45,10 @@ Future<dynamic> customBottom(BuildContext context) {
                 onPressed: () {
                   drinks.add(
                     Order(
-                      DateTime.now().millisecondsSinceEpoch.toString(),
                       nameController.text,
                       drinkController.text,
                       notesController.text,
+                      isCompleted: false,
                     ),
                   );
                   nameController.clear();
@@ -56,6 +56,9 @@ Future<dynamic> customBottom(BuildContext context) {
                   notesController.clear();
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (context) => PendingScreen()),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Drink added successfully!')),
                   );
                 },
                 child: Text('Add Drink'),

@@ -1,8 +1,8 @@
 class Order {
-  final String id;
   final String name;
   final String drink;
-  final String notes;
+  String? notes;
+  bool isCompleted;
 
-  Order(this.id, this.name, this.drink, this.notes);
+  Order(this.name, this.drink, this.notes, {this.isCompleted = false});
 }
