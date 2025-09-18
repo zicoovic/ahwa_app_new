@@ -88,21 +88,19 @@ flutter run
 
 ## 📸 Screenshots
 
-### Main Dashboard
+## Screenshots
 
-![Main Dashboard](Screenshots/main_dashboard.png)
-### Add New Order
-![Add Order](Screenshots/add_new_order.png)
+| Main Dashboard | Add Order |
+|:-:|:-:|
+| <img src="screenshots/main_dashboard.png" width="300"> | <img src="screenshots/add_order.png" width="300"> |
 
-### Pending Orders
-![Pending Orders](Screenshots/pending_orders.png)
-![Pending Orders](Screenshots/pending_orders2.png)
+| Pending Orders | Order History |
+|:-:|:-:|
+| <img src="screenshots/pending_orders.png" width="300"> | <img src="screenshots/order_history.png" width="300"> |
 
-### Order History
-![Order History](Screenshots/order_history.png)
-
-### Daily Reports
-![Reports](Screenshots/daily_reports.png)
+| Daily Reports |
+|:-:|
+| <img src="screenshots/reports.png" width="300"> |
 
 ## 🔧 Key Components
 
