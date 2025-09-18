@@ -92,15 +92,15 @@ flutter run
 
 | Main Dashboard | Add Order |
 |:-:|:-:|
-| <img src="screenshots/main_dashboard.png" width="300"> | <img src="screenshots/add_order.png" width="300"> |
+| <img src="Screenshots/main_dashboard.png" width="300"> | <img src="Screenshots/add_order.png" width="300"> |
 
 | Pending Orders | Order History |
 |:-:|:-:|
-| <img src="screenshots/pending_orders.png" width="300"> | <img src="screenshots/order_history.png" width="300"> |
+| <img src="Screenshots/pending_orders.png" width="300"> | <img src="Screenshots/order_history.png" width="300"> |
 
 | Daily Reports |
 |:-:|
-| <img src="screenshots/reports.png" width="300"> |
+| <img src="Screenshots/reports.png" width="300"> |
 
 ## 🔧 Key Components
 
