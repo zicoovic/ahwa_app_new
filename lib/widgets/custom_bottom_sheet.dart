@@ -38,8 +38,8 @@ Future<dynamic> customBottom(BuildContext context) {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {
-                  OrderManager.addOrder(
+                onPressed: () async {
+                  await OrderManager.addOrder(
                     nameController.text,
                     drinkController.text,
                     notesController.text.isEmpty ? null : notesController.text,

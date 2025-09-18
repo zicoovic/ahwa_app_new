@@ -1,5 +1,6 @@
 import 'package:ahwa_app_new/screens/orders_history_screen.dart';
 import 'package:ahwa_app_new/screens/pending_screen.dart';
+import 'package:ahwa_app_new/screens/report_screen.dart';
 import 'package:ahwa_app_new/service/order_manager.dart';
 import 'package:ahwa_app_new/widgets/custom_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +26,7 @@ class _OrderScreenState extends State<OrderScreen> {
                 children: [
                   const Text('No pending orders'),
                   const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  Column(
                     children: [
                       ElevatedButton(
                         onPressed: () async {
@@ -46,6 +46,17 @@ class _OrderScreenState extends State<OrderScreen> {
                           );
                         },
                         child: const Text('Orders History'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const ReportsScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text('View Reports'),
                       ),
                     ],
                   ),

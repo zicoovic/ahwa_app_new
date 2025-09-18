@@ -1,4 +1,5 @@
 import 'package:ahwa_app_new/service/order_manager.dart';
+import 'package:ahwa_app_new/widgets/custom_bottom_sheet.dart';
 
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,13 @@ class _PendingScreenState extends State<PendingScreen> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Pending Orders')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await customBottom(context);
+          setState(() {});
+        },
+        child: Center(child: Text("Add more orders")),
+      ),
       body: pending.isEmpty
           ? Center(
               child: Column(
@@ -26,7 +34,7 @@ class _PendingScreenState extends State<PendingScreen> {
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context); // بس ارجع للشاشة اللي قبلها
+                      Navigator.pop(context);
                     },
                     child: Text('Add Order'),
                   ),
