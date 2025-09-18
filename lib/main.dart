@@ -1,6 +1,5 @@
 import 'package:ahwa_app_new/screens/order_screen.dart';
 import 'package:ahwa_app_new/service/order_manager.dart';
-
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -21,14 +20,16 @@ class MainApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Welcome to Ahwa App'),
+              Text('Welcome to Ahwa App', style: TextStyle(fontSize: 24)),
               SizedBox(height: 20),
               Builder(
                 builder: (context) => ElevatedButton(
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (_) => const OrderScreen()),
+                      MaterialPageRoute(
+                        builder: (_) => OrderScreen(),
+                      ), // شيل const
                     );
                   },
                   child: Text('Place Order'),

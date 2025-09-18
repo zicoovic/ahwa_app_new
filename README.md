@@ -89,19 +89,20 @@ flutter run
 ## 📸 Screenshots
 
 ### Main Dashboard
-The central hub showing pending orders count and quick access to all features.
 
+![Main Dashboard](screenshots/main_dashboard.png)
 ### Add New Order
-Modal bottom sheet for adding new customer orders with validation.
+![Add Order](screenshots/add_new_order.png)
 
 ### Pending Orders
-List view of all pending orders with complete functionality.
+![Pending Orders](screenshots/pending_orders.png)
+![Pending Orders](screenshots/pending_orders2.png)
 
 ### Order History
-Historical view of all completed orders for record keeping.
+![Order History](screenshots/order_history.png)
 
 ### Daily Reports
-Analytics dashboard showing top-selling drinks and order statistics.
+![Reports](screenshots/daily_reports.png)
 
 ## 🔧 Key Components
 

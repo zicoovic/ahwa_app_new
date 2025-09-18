@@ -21,7 +21,7 @@ class _PendingScreenState extends State<PendingScreen> {
           await customBottom(context);
           setState(() {});
         },
-        child: Center(child: Text("Add more orders")),
+        child: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
       ),
       body: pending.isEmpty
           ? Center(
