@@ -17,15 +17,18 @@ A Flutter application designed for managing customer orders in traditional Egypt
 This app demonstrates the implementation of SOLID principles in Flutter:
 
 ### Single Responsibility Principle (SRP)
+
 - `OrderManager`: Handles all order-related data operations
 - `CustomFormField`: Manages form input UI only
 - Each screen focuses on its specific functionality
 
 ### Open-Closed Principle (OCP)
+
 - Easy to extend with new drink types or order features
 - No need to modify existing code when adding new functionality
 
 ### Dependency Inversion Principle (DIP)
+
 - UI components depend on `OrderManager` abstraction
 - Screens are not tightly coupled to specific data implementations
 
@@ -59,6 +62,7 @@ lib/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Flutter SDK (3.0.0 or higher)
 - Dart SDK (2.17.0 or higher)
 - Android Studio / VS Code
@@ -67,21 +71,25 @@ lib/
 ### Installation
 
 1. Clone the repository
+
 ```bash
 git clone https://github.com/zicoovic/ahwa_app_new.git
 ```
 
 2. Navigate to project directory
+
 ```bash
 cd ahwa_app_new
 ```
 
 3. Get dependencies
+
 ```bash
 flutter pub get
 ```
 
 4. Run the app
+
 ```bash
 flutter run
 ```
@@ -90,29 +98,33 @@ flutter run
 
 ## Screenshots
 
-| Main Dashboard | Add Order |
-|:-:|:-:|
-| <img src="Screenshots/main_dashboard.png" width="300"> | <img src="Screenshots/add_order.png" width="300"> |
+|                     Main Dashboard                     |                         Add Order                         |
+| :----------------------------------------------------: | :-------------------------------------------------------: |
+| <img src="Screenshots/main_dashboard.png" width="300"> | <img src="Screenshots/add_new_order.png.png" width="300"> |
 
-| Pending Orders | Order History |
-|:-:|:-:|
-| <img src="Screenshots/pending_orders.png" width="300"> | <img src="Screenshots/order_history.png" width="300"> |
+|                     Pending Orders                     |                        Order History                        |
+| :----------------------------------------------------: | :---------------------------------------------------------: |
+| <img src="Screenshots/pending_orders.png" width="300"> | <img src="Screenshots/pending_orders2.png.png" width="300"> |
 
-| Daily Reports |
-|:-:|
-| <img src="Screenshots/reports.png" width="300"> |
+|                    Daily Reports                     |
+| :--------------------------------------------------: | ------------------------------------------------------ |
+| <img src="Screenshots/order_history.png" width="300" | <img src="Screenshots/daily_reports.png" width="300" > |
 
 ## 🔧 Key Components
 
 ### OrderManager
+
 Core service class handling:
+
 - Order creation and management
 - Data persistence with SharedPreferences
 - Business logic for order completion
 - Report generation and analytics
 
 ### Order Model
+
 Simple data class representing:
+
 - Customer name
 - Drink type (shai, Turkish coffee, hibiscus tea, etc.)
 - Special instructions
@@ -121,16 +133,19 @@ Simple data class representing:
 ## 📊 Features in Detail
 
 ### Order Management
+
 - Add orders with customer name, drink preference, and special notes
 - Real-time validation and error handling
 - Automatic data persistence
 
 ### Status Tracking
+
 - Visual indicators for pending vs completed orders
 - One-click order completion
 - Automatic history management
 
 ### Reporting
+
 - Top-selling drinks analysis
 - Total orders served counter
 - Most popular drink identification
@@ -162,6 +177,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 **Abdelrahman Mohammed**
+
 - GitHub: [@zicoovic](https://github.com/zicoovic)
 - LinkedIn: [Abdelrahman Mohammed](https://www.linkedin.com/in/abdelrahman-mohammed-b58bb7103/)
 
@@ -171,4 +187,4 @@ This project was developed as part of an OOP and SOLID principles assessment, de
 
 ---
 
-*Built with ❤️ for traditional Egyptian café owners*
+_Built with ❤️ for traditional Egyptian café owners_
