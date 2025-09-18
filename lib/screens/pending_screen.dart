@@ -1,5 +1,5 @@
-import 'package:ahwa_app_new/screens/order_screen.dart';
-import 'package:ahwa_app_new/widgets/custom_bottom_sheet.dart';
+import 'package:ahwa_app_new/service/order_manager.dart';
+
 import 'package:flutter/material.dart';
 
 class PendingScreen extends StatefulWidget {
@@ -11,15 +11,10 @@ class PendingScreen extends StatefulWidget {
 class _PendingScreenState extends State<PendingScreen> {
   @override
   Widget build(BuildContext context) {
-    final pending = drinks.where((order) => !order.isCompleted).toList();
+    final pending = OrderManager.getPendingOrders();
+
     return Scaffold(
       appBar: AppBar(title: const Text('Pending Orders')),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        child: Icon(Icons.add),
-      ),
       body: pending.isEmpty
           ? Center(
               child: Column(
@@ -31,12 +26,7 @@ class _PendingScreenState extends State<PendingScreen> {
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (_) => const OrderScreen()),
-                      );
-                      setState(() {});
-                      Navigator.pop(context);
+                      Navigator.pop(context); // بس ارجع للشاشة اللي قبلها
                     },
                     child: Text('Add Order'),
                   ),
@@ -44,17 +34,17 @@ class _PendingScreenState extends State<PendingScreen> {
               ),
             )
           : ListView.builder(
-              itemCount: drinks.length,
+              itemCount: pending.length,
               itemBuilder: (context, index) {
+                final order = pending[index];
                 return ListTile(
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(drinks[index].name),
-                      Text(drinks[index].drink),
-                      drinks[index].notes!.isNotEmpty
-                          ? Text("(${drinks[index].notes})")
-                          : SizedBox.shrink(),
+                      Text(order.name),
+                      Text(order.drink),
+                      if (order.notes?.isNotEmpty == true)
+                        Text("(${order.notes})"),
                     ],
                   ),
                   subtitle: Text(
@@ -64,17 +54,19 @@ class _PendingScreenState extends State<PendingScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-
                   trailing: IconButton(
                     onPressed: () {
-                      setState(() {
-                        drinks[index].isCompleted = true;
-                        Navigator.pop(context);
-                        drinks.removeWhere((order) => order.isCompleted);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Drink marked as completed!')),
-                        );
-                      });
+                      final allOrders = OrderManager.getAllOrders();
+                      final actualIndex = allOrders.indexWhere(
+                        (o) => o.name == order.name && o.drink == order.drink,
+                      );
+                      OrderManager.completeOrder(actualIndex);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Drink marked as completed!')),
+                      );
+                      setState(() {});
+
+                      Navigator.pop(context, 'refresh'); //// حدث الشاشة الحالية
                     },
                     icon: Icon(Icons.check_box, color: Colors.green),
                   ),

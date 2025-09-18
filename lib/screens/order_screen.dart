@@ -1,4 +1,6 @@
+import 'package:ahwa_app_new/screens/orders_history_screen.dart';
 import 'package:ahwa_app_new/screens/pending_screen.dart';
+import 'package:ahwa_app_new/service/order_manager.dart';
 import 'package:ahwa_app_new/widgets/custom_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,8 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
-    final order = drinks.where((order) => !order.isCompleted).toList();
+    final order = OrderManager.getPendingOrders();
+
     return Scaffold(
       appBar: AppBar(title: const Text('Order')),
       body: order.isEmpty
@@ -22,12 +25,29 @@ class _OrderScreenState extends State<OrderScreen> {
                 children: [
                   const Text('No pending orders'),
                   const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () async {
-                      await customBottom(context);
-                      setState(() {});
-                    },
-                    child: const Text('Add Drink'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () async {
+                          await customBottom(context);
+                          setState(() {});
+                        },
+                        child: const Text('Add Drink'),
+                      ),
+                      const SizedBox(width: 20),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const OrderHistoryScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text('Orders History'),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -36,19 +56,22 @@ class _OrderScreenState extends State<OrderScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('You have ${drinks.length} pending orders'),
+                  Text('You have ${order.length} pending orders'),
                   const SizedBox(height: 20),
                   const Icon(Icons.pending_actions, size: 50),
                   const SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed: () {
-                      setState(() {});
-                      Navigator.push(
+                    onPressed: () async {
+                      final result = await Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (_) => const PendingScreen(),
                         ),
                       );
+
+                      if (result == 'refresh') {
+                        setState(() {});
+                      }
                     },
                     child: const Text('Pending orders'),
                   ),

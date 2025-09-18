@@ -1,9 +1,11 @@
 import 'package:ahwa_app_new/screens/order_screen.dart';
-import 'package:ahwa_app_new/screens/pending_screen.dart';
+import 'package:ahwa_app_new/service/order_manager.dart';
 
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await OrderManager.loadData();
   runApp(const MainApp());
 }
 

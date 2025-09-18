@@ -1,10 +1,6 @@
-import 'package:ahwa_app_new/models/order_model.dart';
-import 'package:ahwa_app_new/screens/pending_screen.dart';
+import 'package:ahwa_app_new/service/order_manager.dart';
 import 'package:ahwa_app_new/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
-
-// Define the drinks list globally
-List<Order> drinks = [];
 
 Future<dynamic> customBottom(BuildContext context) {
   final TextEditingController nameController = TextEditingController();
@@ -43,20 +39,15 @@ Future<dynamic> customBottom(BuildContext context) {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  drinks.add(
-                    Order(
-                      nameController.text,
-                      drinkController.text,
-                      notesController.text,
-                      isCompleted: false,
-                    ),
+                  OrderManager.addOrder(
+                    nameController.text,
+                    drinkController.text,
+                    notesController.text.isEmpty ? null : notesController.text,
                   );
                   nameController.clear();
                   drinkController.clear();
                   notesController.clear();
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => PendingScreen()),
-                  );
+                  Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Drink added successfully!')),
                   );
