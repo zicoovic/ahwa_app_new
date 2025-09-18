@@ -98,17 +98,19 @@ flutter run
 
 ## Screenshots
 
-|                     Main Dashboard                     |                         Add Order                         |
-| :----------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="Screenshots/main_dashboard.png" width="300"> | <img src="Screenshots/add_new_order.png.png" width="300"> |
+|                     Main Dashboard                     |                     Add Order                     |
+| :----------------------------------------------------: | :-----------------------------------------------: |
+| <img src="Screenshots/main_dashboard.png" width="300"> | <img src="Screenshots/add_order.png" width="300"> |
 
-|                     Pending Orders                     |                        Order History                        |
-| :----------------------------------------------------: | :---------------------------------------------------------: |
-| <img src="Screenshots/pending_orders.png" width="300"> | <img src="Screenshots/pending_orders2.png.png" width="300"> |
+|                     Pending Orders                     |                        Pending Orders                  |
+| :----------------------------------------------------: | :---------------------------------------------------: |
+| <img src="Screenshots/pending_orders.png" width="300"> |  <img src="Screenshots/pending_orders2.png" width="300"> |
 
-|                    Daily Reports                     |
-| :--------------------------------------------------: | ------------------------------------------------------ |
-| <img src="Screenshots/order_history.png" width="300" | <img src="Screenshots/daily_reports.png" width="300" > |
+|                     Order History                     |                       Daily Reports                   |
+| :----------------------------------------------------: | :---------------------------------------------------: |
+| <img src="Screenshots/order_history.png.png" width="300"> |  | <img src="screenshots/daily_reports.png.png" width="300"> |
+
+ 
 
 ## 🔧 Key Components
 
