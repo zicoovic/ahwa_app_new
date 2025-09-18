@@ -106,9 +106,9 @@ flutter run
 | :----------------------------------------------------: | :-----------------------------------------------------: |
 | <img src="Screenshots/pending_orders.png" width="300"> | <img src="Screenshots/pending_orders2.png" width="300"> |
 
-|                       Order history                       |                       Daily Reports                       |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="Screenshots/order_history.png.png" width="300"> | <img src="Screenshots/daily_reports.png.png" width="300"> |
+|                     Order history                     |                     Daily Reports                     |
+| :---------------------------------------------------: | :---------------------------------------------------: |
+| <img src="Screenshots/order_history.png" width="300"> | <img src="Screenshots/daily_reports.png" width="300"> |
 
 ## 🔧 Key Components
 
